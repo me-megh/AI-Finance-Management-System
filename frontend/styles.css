@@ -1,0 +1,74 @@
+/* styles.css */
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #003366;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .auth-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .auth-buttons button,
+  .logout-button {
+    background-color: #0055a5;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .auth-buttons button:hover,
+  .logout-button:hover {
+    background-color: #003d73;
+  }
+  
+  .user-info span {
+    margin-right: 10px;
+  }
+  
+  .auth-button,
+  .logout-button {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .container {
+    padding: 20px;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+  }
+  
+  h1, h2 {
+    color: #003366;
+  }
+  
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0055a5;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #003d73;
+  }
+  

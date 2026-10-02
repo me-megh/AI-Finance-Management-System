@@ -1,0 +1,84 @@
+/* General styles for the form */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f1f9f4; /* Light Greenish Grey background */
+    color: #333333; /* Dark Grey text for better readability */
+  }
+  
+  /* Form container */
+  .form-container {
+    background-color: #ffffff; /* White form container */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Heading */
+  .heading {
+    color: #28a745; /* Green color for the heading */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  /* Input fields */
+  .input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #dcdcdc; /* Light border */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #e0f7e9; /* Light Mint input background */
+    color: #333333;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #28a745; /* Green border when focused */
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+  }
+  
+  /* Button */
+  .button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745; /* Green button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #218838; /* Darker Green on hover */
+  }
+  
+  /* Error message */
+  .error-message {
+    color: #f44336; /* Red color for error messages */
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Toggle between Signup and Login */
+  .toggle-btn {
+    margin-top: 15px;
+    color: #28a745; /* Green text */
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .toggle-btn:hover {
+    color: #218838; /* Darker Green when hovering */
+  }
+  
