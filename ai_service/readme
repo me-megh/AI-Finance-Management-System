@@ -45,7 +45,9 @@ MongoDB Database FastAPI AI Service
 |
 Machine Learning Models
 |
--------------------
+
+---
+
 | |
 Linear Regression Random Forest
 
@@ -94,5 +96,3 @@ Built a Python FastAPI based AI microservice for financial prediction and recomm
 Implemented Machine Learning models using Scikit-learn including Linear Regression for budget prediction and Random Forest Classifier for investment recommendation.
 Applied data preprocessing techniques like One-Hot Encoding and model serialization using Joblib/Pickle.
 Integrated AI prediction APIs with backend services to provide personalized financial insights.
-
----
