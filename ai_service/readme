@@ -1,0 +1,98 @@
+login details:
+email:testuser@gmail.com
+password:11111
+
+---
+
+How to start project.
+
+## backend->terminal->node app.js
+
+## frontend->terminal-> npm run dev
+
+## ai_services->terminal->uvicorn investment_and_budget_api:app --reload
+
+---
+
+## Tech
+
+React.js
+Node.js
+Express.js
+MongoDB
+Python
+FastAPI
+Scikit-learn
+Pandas
+Machine Learning
+REST APIs
+
+--
+
+## High Level Architecture
+
+                React.js
+                  |
+                  |
+            Node.js Backend
+                  |
+                  |
+        ---------------------
+        |                   |
+
+MongoDB Database FastAPI AI Service
+|
+|
+Machine Learning Models
+|
+-------------------
+| |
+Linear Regression Random Forest
+
+---
+
+## frontend
+
+@ javascript
+framework: react.js
+@API Integration
+React
+|
+Axios
+|
+Node API
+
+## backend
+
+lang.:javascript
+runtime :node.js
+framework: express.js
+REST API
+@Authentication: Libraries: bcryptjs,JWT Authentication
+
+Database: MongoDB->odm:Mongoose
+
+## AI Service Layer
+
+Python
+framework: FastAPI
+Python Libraries: Pandas,NumPy
+Ml libraries: Scikit-learn
+Algorithm 1: Linear Regression
+Algorithm 2: Random Forest Classifier
+
+---
+
+## Resume Me Add Karne Ke Liye Short Version:
+
+"I developed an AI-based Financial Management System using React.js, Node.js and Python FastAPI. The application uses a microservice architecture where Node.js handles business APIs and authentication, while a separate Python AI service handles machine learning predictions. I implemented Linear Regression for budget prediction and Random Forest Classification for investment recommendation. ML models were trained using Scikit-learn and deployed through FastAPI REST endpoints."
+
+AI-Based Financial Management System
+
+Developed a full-stack financial management application using React.js, Node.js, Express.js and MongoDB.
+Built a Python FastAPI based AI microservice for financial prediction and recommendations.
+Implemented Machine Learning models using Scikit-learn including Linear Regression for budget prediction and Random Forest Classifier for investment recommendation.
+Applied data preprocessing techniques like One-Hot Encoding and model serialization using Joblib/Pickle.
+Integrated AI prediction APIs with backend services to provide personalized financial insights.
+
+---
