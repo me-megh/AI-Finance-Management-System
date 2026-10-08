@@ -16,7 +16,12 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(
+  cors({
+    origin: "https://ai-finance-management-system-1-ayhn.onrender.com",
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 // Register routes
@@ -46,13 +51,16 @@ app.get("/api/predictions/combined", async (req, res) => {
     // 🟢 3. Call FastAPI backend with user data
     let fastApiPrediction = null;
     try {
-      const response = await axios.post("http://localhost:8000/api/predictions/combined", {
-        userId,
-        income,
-        spendingHistory,
-        savings_rate,
-        risk_profile,
-      });
+      const response = await axios.post(
+        "http://localhost:8000/api/predictions/combined",
+        {
+          userId,
+          income,
+          spendingHistory,
+          savings_rate,
+          risk_profile,
+        }
+      );
       fastApiPrediction = response.data;
     } catch (err) {
       console.error("Error calling FastAPI:", err.message);
@@ -64,8 +72,13 @@ app.get("/api/predictions/combined", async (req, res) => {
         category: cat,
         currentMonthlyAvg: amount,
         recommended: Math.max(1000, amount * 0.9), // dummy recommendation
-        bucket: ["Rent", "Groceries", "Utilities"].includes(cat) ? "essential" : "nonessential",
-        tip: amount > (amount * 0.9) ? `⚠️ Overspending on ${cat}` : `✔️ ${cat} is on track`,
+        bucket: ["Rent", "Groceries", "Utilities"].includes(cat)
+          ? "essential"
+          : "nonessential",
+        tip:
+          amount > amount * 0.9
+            ? `⚠️ Overspending on ${cat}`
+            : `✔️ ${cat} is on track`,
       })),
     };
 
@@ -79,8 +92,6 @@ app.get("/api/predictions/combined", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch predictions" });
   }
 });
-
-
 
 // MongoDB connection
 mongoose
