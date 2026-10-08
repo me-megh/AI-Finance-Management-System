@@ -14,7 +14,7 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3001/api/auth/login",
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
         {
           email,
           password,
@@ -23,7 +23,7 @@ const LoginForm = () => {
       if (response.data.token) {
         const token = response.data.token;
         const userId = response.data.userId;
-    
+
         localStorage.setItem("token", token); // Save token to localStorage
         localStorage.setItem("userId", userId); // Save token to localStorage
 
@@ -41,8 +41,8 @@ const LoginForm = () => {
 
   return (
     <div className={styles.container}>
-    <div className={styles["form-container"]}>
-      <h2 className={styles.heading}>Login</h2>
+      <div className={styles["form-container"]}>
+        <h2 className={styles.heading}>Login</h2>
         {error && <p className={styles.error - message}>{error}</p>}
         <form onSubmit={handleSubmit}>
           <input

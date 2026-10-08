@@ -26,8 +26,8 @@ const AuthForm = ({ setToken, setUserName, setUserId, setIsLoggedIn }) => {
     e.preventDefault();
     try {
       const url = isSignup
-        ? "http://localhost:3001/api/auth/signup"
-        : "http://localhost:3001/api/auth/login"; // URL changes based on form type
+        ? `${process.env.NEXT_PUBLIC_API_URL}/api/auth/signup`
+        : `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`; // URL changes based on form type
 
       const response = await axios.post(url, formData);
 
@@ -35,11 +35,11 @@ const AuthForm = ({ setToken, setUserName, setUserId, setIsLoggedIn }) => {
         const token = response.data.token;
         const userName = response.data.user.name; // Retrieve 'name' from response
         const userId = response.data.user._id;
-        
+
         localStorage.setItem("token", token); // Store token in localStorage
         localStorage.setItem("userName", userName); // Store userName
         localStorage.setItem("userId", userId); // Store userId in localStorage
-        
+
         setToken(token); // Set token in state
         setUserName(userName); // Set userName in state
         setUserId(userId); // Set userId in state

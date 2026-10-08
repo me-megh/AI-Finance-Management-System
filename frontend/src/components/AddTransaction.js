@@ -1,7 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Snackbar, Button, MenuItem, Select, FormControl, InputLabel, Box, TextField, Alert } from "@mui/material";
+import {
+  Snackbar,
+  Button,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
+  Box,
+  TextField,
+  Alert,
+} from "@mui/material";
 
 function AddTransaction({ refreshTransactions }) {
   const [amount, setAmount] = useState("");
@@ -36,7 +46,7 @@ function AddTransaction({ refreshTransactions }) {
     try {
       // Sending transaction data to the backend
       const response = await axios.post(
-        "http://localhost:3001/api/transactions", // Ensure this matches your backend route
+        `${process.env.NEXT_PUBLIC_API_URL}/api/transactions`, // Ensure this matches your backend route
         {
           amount,
           category,
@@ -51,7 +61,6 @@ function AddTransaction({ refreshTransactions }) {
         }
       );
 
-   
       // Set success message for Snackbar
       setSnackbarMessage("Transaction added successfully!");
       setSnackbarSeverity("success"); // Success message
@@ -175,8 +184,8 @@ function AddTransaction({ refreshTransactions }) {
         autoHideDuration={6000} // Duration before Snackbar auto closes
         onClose={handleSnackbarClose}
         anchorOrigin={{
-          vertical: "bottom",  // Position at the bottom
-          horizontal: "center",  // Center horizontally
+          vertical: "bottom", // Position at the bottom
+          horizontal: "center", // Center horizontally
         }}
       >
         <Alert
@@ -184,7 +193,7 @@ function AddTransaction({ refreshTransactions }) {
           severity={snackbarSeverity} // Success/Error
           sx={{
             width: "100%",
-            padding: "16px",  // Larger padding for better visibility
+            padding: "16px", // Larger padding for better visibility
             fontSize: "18px", // Larger font size
             fontWeight: "bold", // Make the text bold
             borderRadius: "8px", // Rounded corners

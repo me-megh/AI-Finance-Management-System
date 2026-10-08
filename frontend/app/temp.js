@@ -33,7 +33,6 @@ export default function Home() {
     const storedToken = getAuthToken();
     const storedUserName = localStorage.getItem("userName");
     const storedUserId = localStorage.getItem("userId");
- 
 
     if (storedToken && storedUserName && storedUserId) {
       setToken(storedToken);
@@ -43,16 +42,16 @@ export default function Home() {
 
       // Fetch the user's income, savings rate, and risk profile from the backend
       axios
-        .get(`http://localhost:3001/api/user/${storedUserId}`, {
+        .get(`${process.env.NEXT_PUBLIC_API_URL}/api/user/${storedUserId}`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
         .then((response) => {
           const { income, savings_rate, risk_profile } = response.data;
-          
+
           setIncome(income);
           setSavingsRate(savings_rate); // setting savings rate
           setRiskProfile(risk_profile);
-       
+
           // Save income, savings rate, and risk profile in localStorage
           localStorage.setItem("income", income);
           localStorage.setItem("savings_rate", savings_rate); // saving savings rate
@@ -77,7 +76,7 @@ export default function Home() {
       if (!token) return;
 
       const response = await axios.get(
-        `http://localhost:3001/api/transactions`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/transactions`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
 

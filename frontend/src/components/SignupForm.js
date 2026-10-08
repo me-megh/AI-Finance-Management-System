@@ -22,7 +22,7 @@ const SignupForm = () => {
     try {
       // Send POST request to the backend signup route (Updated port to 5000)
       const response = await axios.post(
-        "http://localhost:3001/api/auth/signup",
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/signup`,
         formData
       ); // Changed port to 5000
       alert("Signup successful! Please log in.");
@@ -36,8 +36,8 @@ const SignupForm = () => {
     <div className={styles.container}>
       <div className={styles["form-container"]}>
         <h2 className={styles.heading}>Sign Up</h2>
-      {error && <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
+        {error && <p>{error}</p>}
+        <form onSubmit={handleSubmit}>
           <input
             className={styles.input}
             type="text"
@@ -65,9 +65,11 @@ const SignupForm = () => {
             onChange={handleChange}
             required
           />
-          <button className={styles.button} type="submit">Sign Up</button>
+          <button className={styles.button} type="submit">
+            Sign Up
+          </button>
         </form>
-    </div>
+      </div>
     </div>
   );
 };

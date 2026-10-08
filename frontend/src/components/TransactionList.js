@@ -55,7 +55,7 @@ const TransactionList = ({ refreshTransactions }) => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        "http://localhost:3001/api/transactions",
+        `${process.env.NEXT_PUBLIC_API_URL}/api/transactions`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -102,7 +102,7 @@ const TransactionList = ({ refreshTransactions }) => {
     if (confirmDelete) {
       try {
         const response = await axios.delete(
-          `http://localhost:3001/api/transactions/${id}`,
+          `${process.env.NEXT_PUBLIC_API_URL}/api/transactions/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -136,7 +136,7 @@ const TransactionList = ({ refreshTransactions }) => {
     try {
       const updatedTransaction = { ...selectedTransaction, category };
       const response = await axios.put(
-        `http://localhost:3001/api/transactions/${selectedTransaction._id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/transactions/${selectedTransaction._id}`,
         updatedTransaction,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -167,7 +167,12 @@ const TransactionList = ({ refreshTransactions }) => {
   };
 
   return (
-    <div style={{ padding: "20px", backgroundColor: "#f1f9f4" /* Light Greenish Grey */ }}>
+    <div
+      style={{
+        padding: "20px",
+        backgroundColor: "#f1f9f4" /* Light Greenish Grey */,
+      }}
+    >
       {error && (
         <Typography
           variant="body1"
@@ -292,9 +297,11 @@ const TransactionList = ({ refreshTransactions }) => {
             ))}
           </TableBody>
         </Table>
-        
+
         {/* Pagination */}
-        <Box sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+        <Box
+          sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}
+        >
           <Pagination
             count={Math.ceil(sortedTransactions.length / transactionsPerPage)}
             page={currentPage}
@@ -319,11 +326,11 @@ const TransactionList = ({ refreshTransactions }) => {
           severity={snackbarSeverity}
           sx={{
             width: "100%",
-            padding: "16px", 
-            fontSize: "18px", 
-            fontWeight: "bold", 
-            borderRadius: "8px", 
-            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)", 
+            padding: "16px",
+            fontSize: "18px",
+            fontWeight: "bold",
+            borderRadius: "8px",
+            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
             color: snackbarSeverity === "error" ? "#f44336" : "#28a745",
           }}
         >
@@ -352,7 +359,7 @@ const TransactionList = ({ refreshTransactions }) => {
             sx={{
               marginBottom: 2,
               "& .MuiInputBase-root": {
-                borderColor: "#28a745", 
+                borderColor: "#28a745",
               },
             }}
           />

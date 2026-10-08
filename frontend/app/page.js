@@ -42,7 +42,7 @@ export default function Home() {
 
       // Fetch user data
       axios
-        .get(`http://localhost:3001/api/user/${storedUserId}`, {
+        .get(`${process.env.NEXT_PUBLIC_API_URL}${storedUserId}`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
         .then((response) => {
@@ -72,7 +72,7 @@ export default function Home() {
       if (!token) return;
 
       const response = await axios.get(
-        `http://localhost:3001/api/transactions`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/transactions`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
